@@ -208,6 +208,51 @@ app.post("/api/send-mass-email", async (req, res) => {
   }
 });
 
+// home route with basic info on the app
+app.get("/", async (req, res) => {
+  try {
+    // Get subscriber count for stats
+    const subscriberCount = await Subscriber.countDocuments({
+      subscribed: true,
+    });
+
+    res.status(200).json({
+      service: "Email Subscription API",
+      version: "1.0.0",
+      status: "operational",
+      description: "API for managing email subscriptions with MongoDB storage",
+      endpoints: {
+        subscribe: {
+          method: "POST",
+          path: "/api/subscribe",
+          description: "Submit an email for subscription",
+          requestBody: {
+            email: "string (required, valid email format)",
+          },
+        },
+        unsubscribe: {
+          method: "GET",
+          path: "/api/unsubscribe?token={token}",
+          description: "Unsubscribe using token from email",
+        },
+      },
+      statistics: {
+        active_subscribers: subscriberCount,
+        last_updated: new Date().toISOString(),
+      },
+      documentation: "https://github.com/your-repo/docs",
+      repository: "https://github.com/your-repo/email-service",
+    });
+  } catch (error) {
+    console.error("Home route error:", error);
+    res.status(200).json({
+      service: "Email Subscription API",
+      status: "operational",
+      description: "API for managing email subscriptions",
+      note: "Statistics temporarily unavailable",
+    });
+  }
+});
 // Admin route to get subscriber count
 app.get("/api/subscriber-count", async (req, res) => {
   try {

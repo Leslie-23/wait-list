@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/subscribe",
+      "methods": ["POST", "OPTIONS"],
+      "dest": "app.js"
+    },
+    {
+      "src": "/health",
+      "methods": ["GET"],
+      "dest": "app.js"
+    }
+  ]
+}
