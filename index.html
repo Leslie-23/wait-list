@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Subscription</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .container {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+      }
+      input,
+      button {
+        padding: 10px;
+        margin: 10px 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
+      .success {
+        background: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Subscribe to Our Newsletter</h1>
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <button id="subscribe">Subscribe</button>
+      <div id="message"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById("subscribe")
+        .addEventListener("click", async () => {
+          const email = document.getElementById("email").value;
+          const messageEl = document.getElementById("message");
+
+          messageEl.style.display = "none";
+
+          try {
+            const response = await fetch(
+              "http://localhost:8000/api/subscribe",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+              }
+            );
+
+            const data = await response.json();
+
+            if (data.success) {
+              messageEl.textContent = data.message;
+              messageEl.className = "success";
+              messageEl.style.display = "block";
+            } else {
+              messageEl.textContent = data.message;
+              messageEl.className = "error";
+              messageEl.style.display = "block";
+            }
+          } catch (error) {
+            messageEl.textContent = "Failed to connect to the server";
+            messageEl.className = "error";
+            messageEl.style.display = "block";
+            console.error("Error:", error);
+          }
+        });
+    </script>
+  </body>
+</html>

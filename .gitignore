@@ -1,0 +1,175 @@
+# General
+.DS_Store
+*.swp
+*.swo
+*~
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+._*
+
+# IDE specific
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+bower_components/
+jspm_packages/
+.pnp
+.pnp.js
+
+# Build directories
+dist/
+build/
+out/
+.next/
+.nuxt/
+.serverless/
+.temp/
+.cache/
+.parcel-cache/
+
+# Coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+.venv
+
+# Debug
+debug/
+*.debug
+
+# Testing
+.cypress/
+cypress/
+test-results/
+jest-test-results.json
+
+# Documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# System Files
+*.orig
+*.bak
+*.patch
+
+# Editor files
+*.sublime-*
+*.komodoproject
+*.kdev4
+
+# OS generated files
+[Tt]humbs.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Executables
+*.exe
+*.out
+*.app
+*.msi
+*.bat
+*.cmd
+
+# Database files
+*.db
+*.sqlite
+*.sql
+*.dump
+
+# Local development configs
+docker-compose.override.yml
+docker-compose.dev.yml
+
+# Language specific ignores (uncomment as needed)
+
+## Python
+*.py[cod]
+__pycache__/
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+pyvenv.cfg
+
+## Java
+*.class
+*.war
+*.ear
+*.jar
+
+## Ruby
+*.gem
+.bundle/
+.ruby-version
+.ruby-gemset
+
+## Go
+/bin/
+/pkg/
+
+## Rust
+/target/
+**/*.rs.bk
+
+## PHP
+vendor/
+composer.lock
+.phpunit.result.cache
+
+## Android
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+build/
+
+## iOS
+*.ipa
+*.xcuserstate
+*.xcworkspace
+xcuserdata/
+DerivedData/
+Pods/

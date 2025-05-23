@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Mass Email</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+      .stats {
+        background-color: #f0f8ff;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      textarea {
+        min-height: 200px;
+        font-family: Arial, sans-serif;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #message {
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+      }
+      .success {
+        background-color: #d4edda;
+        color: #155724;
+      }
+      .error {
+        background-color: #f8d7da;
+        color: #721c24;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mass Email Tool</h1>
+
+      <div class="stats">
+        <h3>Subscriber Statistics</h3>
+        <p>Active subscribers: <span id="subscriberCount">Loading...</span></p>
+      </div>
+
+      <form id="massEmailForm">
+        <label for="subject">Email Subject:</label>
+        <input type="text" id="subject" required />
+
+        <label for="content">Email Content (HTML):</label>
+        <textarea id="content" required></textarea>
+
+        <button type="submit">Send to All Subscribers</button>
+      </form>
+
+      <div id="message"></div>
+    </div>
+
+    <script>
+      // Get subscriber count
+      async function updateSubscriberCount() {
+        try {
+          const response = await fetch("/api/subscriber-count");
+          const data = await response.json();
+          if (data.success) {
+            document.getElementById("subscriberCount").textContent = data.count;
+          }
+        } catch (error) {
+          console.error("Error getting subscriber count:", error);
+        }
+      }
+
+      // Handle form submission
+      document
+        .getElementById("massEmailForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const messageEl = document.getElementById("message");
+          messageEl.style.display = "none";
+
+          const subject = document.getElementById("subject").value;
+          const content = document.getElementById("content").value;
+
+          try {
+            const response = await fetch("/api/send-mass-email", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                subject: subject,
+                htmlContent: content,
+              }),
+            });
+
+            const data = await response.json();
+
+            messageEl.textContent = data.message;
+            messageEl.className = data.success ? "success" : "error";
+            messageEl.style.display = "block";
+
+            if (data.success) {
+              document.getElementById("massEmailForm").reset();
+              updateSubscriberCount();
+            }
+          } catch (error) {
+            messageEl.textContent = "Failed to connect to the server";
+            messageEl.className = "error";
+            messageEl.style.display = "block";
+            console.error("Error:", error);
+          }
+        });
+
+      // Initial load
+      updateSubscriberCount();
+    </script>
+  </body>
+</html>
