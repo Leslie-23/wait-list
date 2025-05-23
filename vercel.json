@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.js",
+      "src": "index.js",
       "use": "@vercel/node"
     }
   ],
@@ -10,12 +10,12 @@
     {
       "src": "/api/subscribe",
       "methods": ["POST", "OPTIONS"],
-      "dest": "app.js"
+      "dest": "index.js"
     },
     {
       "src": "/health",
       "methods": ["GET"],
-      "dest": "app.js"
+      "dest": "index.js"
     }
   ]
 }
