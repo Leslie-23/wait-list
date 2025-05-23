@@ -9,12 +9,26 @@
   "routes": [
     {
       "src": "/api/subscribe",
-      "methods": ["POST", "OPTIONS"],
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/unsubscribe",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/send-mass-email",
+      "dest": "index.js"
+    },
+    {
+      "src": "/api/subscriber-count",
       "dest": "index.js"
     },
     {
       "src": "/health",
-      "methods": ["GET"],
+      "dest": "index.js"
+    },
+    {
+      "src": "/",
       "dest": "index.js"
     }
   ]
