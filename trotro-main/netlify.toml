@@ -2,6 +2,7 @@
   command = "npm install && npm run build"
   publish = "dist"
   functions = "functions"
+  base = "trotro-main"
 
 [[redirects]]
   from = "/api/*"
