@@ -107,16 +107,8 @@ app.post("/api/subscribe", async (req, res) => {
       to: email,
       subject: "Welcome to Trofficient Waitlist!",
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h1 style="color: #00cb07;">Welcome to Trofficient!</h1>
-          <p>We're thrilled to have you join our growing community of users revolutionizing their transportation experience.</p>
-          
-          <h3 style="color: #00cb07;">What Makes Us Different:</h3>
-          <ul>
-            <li><strong>🚀 Smart Routing:</strong> AI-powered route optimization</li>
-            <li><strong>💳 Multiple Payment Options:</strong> Cards, mobile money, and more</li>
-            <li><strong>⏱ Real-Time Tracking:</strong> Know exactly when your ride arrives</li>
-          </ul>
+      <div>
+        <h1  style=' font-weight: 900 '>Welcome Aboard the <span style='color: #00cb07'>Trofficient</span> Waitlist!</h1><p>We're absolutely thrilled to have you join our growing community of savvy users who are about to revolutionize their experience. You're now first in line for something truly special!</p><h3 style="color: #00cb07; margin-top: 25px;">Here's What Makes Trofficient Different:</h3><p>🌟 <strong>Smart Routing That Saves You Time:</strong> We've developed intelligent algorithms that analyze real-time data to optimize every route. No more guessing games - just the most efficient path every time.</p><p>💳 <strong>Payment Freedom:</strong> Whether you prefer digital wallets, traditional cards, or even crypto, we've got you covered with more payment options than any other platform.</p><p>⏱ <strong>Wait Times? What Wait Times?</strong> Our predictive technology learns from user patterns to anticipate demand, meaning you'll spend less time waiting and more time doing what matters.</p><h3 style="color: #00cb07; margin-top: 25px;">Our Story</h3><p>Trofficient was born out of pure frustration - ours and yours. After one too many experiences of inefficient routes, limited payment options, and endless waits, we knew there had to be a better way. What started as a late-night "there's got to be a better solution" conversation between friends has grown into this platform we're so proud to share with you.</p><p>We're not just building another service - we're creating the experience we all wish existed. And you're now part of making that vision a reality!</p><p>Get ready to be the first to experience:</p> <ul> <li>🚀 Our lightning-fast beta launch</li> <li>🎁 Exclusive early-user perks</li> <li>📈 Priority access as we grow</li> 
           
           <p>You'll be the first to know when we launch in your area!</p>
           
