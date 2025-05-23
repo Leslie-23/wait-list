@@ -148,6 +148,7 @@ app.post("/api/subscribe", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "An error occurred. Please try again later.",
+      stack: error.stack,
     });
   }
 });
@@ -246,6 +247,7 @@ app.post("/api/send-mass-email", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "An error occurred while sending mass emails",
+      stack: error.stack,
     });
   }
 });
@@ -260,6 +262,7 @@ app.get("/api/subscriber-count", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Error getting subscriber count",
+      stack: error.stack,
     });
   }
 });
