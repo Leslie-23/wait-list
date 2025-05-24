@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 import { Apple, SmartphoneIcon as Android } from "lucide-react";
 import mockup from "../assets/portrait-mockup.png";
+
 export default function DownloadPage() {
   const mockupRef = useRef(null);
 

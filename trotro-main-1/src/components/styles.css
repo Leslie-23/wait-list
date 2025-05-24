@@ -462,6 +462,7 @@ html {
 
 body {
   min-height: 100vh;
+  font-family: Roboto, Arial;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -476,31 +477,3 @@ body .dribbble img {
   display: block;
   height: 28px;
 }
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  border-top-color: #2da873;
-  animation: spin 1s ease-in-out infinite;
-}
-
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-}
-
-.order button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-/* Existing animations remain the same */

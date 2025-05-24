@@ -10,19 +10,21 @@ export default function AnimatedOrderButton() {
       setAnimate(true);
       setTimeout(() => {
         setAnimate(false);
-      }, 8000);
+      }, 10000);
     }
   };
 
   return (
-    <div className=" font-[E`uclid-Circular-B]">
+    <div className="order-container">
       <button
         className={`order ${
           animate ? "animate" : ""
-        } glassmorphism-button rounded-full sm:rounded-l-none sm:rounded-r-full md:rounded-l-none md:rounded-r-full lg:rounded-l-none lg:rounded-r-full`}
+        } glassmorphism-button rounded-full sm:rounded-l-none sm:rounded-r-full`}
         onClick={handleClick}
       >
-        <span className="default">Join Waitlist</span>
+        <span className="default" style={{ fontWeight: "bolder" }}>
+          Join Waitlist
+        </span>
         <span className="success">
           Confirmed
           <svg viewBox="0 0 12 10">
