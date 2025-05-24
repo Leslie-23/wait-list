@@ -1,0 +1,86 @@
+{
+  "name": "Trofficient - Smart African Mobility",
+  "short_name": "Trofficient",
+  "description": "Revolutionizing urban transport in Africa through AI-powered route optimization and efficient mobility solutions",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#2da873",
+  "orientation": "portrait",
+  "categories": ["transportation", "navigation", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/homepage-mobile.webp",
+      "sizes": "360x640",
+      "type": "image/webp",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshots/homepage-desktop.webp",
+      "sizes": "1920x1080",
+      "type": "image/webp",
+      "form_factor": "wide"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.trofficient.app",
+      "id": "com.trofficient.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/ng/app/trofficient/id123456789"
+    }
+  ],
+  "features": [
+    "GPS navigation",
+    "Route optimization",
+    "Real-time tracking",
+    "Transport scheduling"
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Plan Route",
+      "short_name": "Route",
+      "description": "Find optimal transportation routes",
+      "url": "/route-planner",
+      "icons": [{ "src": "/icons/route-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Live Tracking",
+      "short_name": "Tracking",
+      "description": "Real-time vehicle tracking",
+      "url": "/live-tracking",
+      "icons": [{ "src": "/icons/tracking-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}
